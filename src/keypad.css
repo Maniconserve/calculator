@@ -1,0 +1,66 @@
+.button-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+button {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  border: none;
+  background-color: #475569;
+  color: #f1f5f9;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #64748b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+button.operator {
+  background-color: #6366f1;
+  color: #ffffff;
+}
+
+button.operator:hover {
+  background-color: #818cf8;
+}
+
+button.clear {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+
+button.clear:hover {
+  background-color: #f87171;
+}
+
+button.equal {
+  background-color: #10b981;
+  color: #ffffff;
+}
+
+button.equal:hover {
+  background-color: #34d399;
+}

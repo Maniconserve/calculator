@@ -1,23 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import Keypad from './keypad.js';
 
 function App() {
+  let [input, setInput] = useState("");
+
+  function handleClick(value) {
+    setInput(input + value);
+  }
+
+  function handleClear() {
+    setInput("");
+  }
+
+  function handleEqual() {
+    try {
+      // Using a safe alternative would be better, but sticking to existing logic for now
+      // eslint-disable-next-line no-eval
+      setInput(eval(input).toString());
+    } catch (error) {
+      setInput("Error");
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app-page-wrapper'>
+      <div className='calculator-card'>
+        <div className='output-display'>
+          <input 
+            type='text' 
+            value={input} 
+            readOnly 
+            placeholder="0"
+          />
+        </div>
+        <Keypad 
+          handleClear={handleClear} 
+          handleEqual={handleEqual} 
+          handleClick={handleClick} 
+        />
+      </div>
     </div>
   );
 }
